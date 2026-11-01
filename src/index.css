@@ -88,8 +88,12 @@ button, input, select { font: inherit; color: inherit; }
 .float-0 .ghost-btn { animation: drift 6s ease-in-out infinite; }
 .float-1 .ghost-btn { animation: drift 7.5s ease-in-out infinite reverse; }
 .float-2 .ghost-btn { animation: drift 5.2s ease-in-out infinite 1s; }
-.bubble { position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); width: min(330px, 80vw); background: #fbf8ff; color: #241a3a; border-radius: 18px; padding: 12px 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); display: grid; gap: 8px; animation: pop 0.25s ease; z-index: 6; }
-.bubble::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 10px solid transparent; border-top-color: #fbf8ff; }
+.bubble { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); width: min(330px, 80vw); background: #fbf8ff; color: #241a3a; border-radius: 18px; padding: 12px 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); display: grid; gap: 8px; animation: pop 0.25s ease; z-index: 6; }
+.bubble::after { content: ""; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border: 10px solid transparent; border-bottom-color: #fbf8ff; }
+.edge-left .bubble { left: -40px; transform: none; animation-name: pop-edge; }
+.edge-left .bubble::after { left: 40px; }
+.edge-right .bubble { left: auto; right: -40px; transform: none; animation-name: pop-edge; }
+.edge-right .bubble::after { left: auto; right: 30px; transform: none; }
 .bubble-title { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: #7b5cd6; }
 .bubble p { font-weight: 700; }
 .bubble-actions { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -114,8 +118,8 @@ button, input, select { font: inherit; color: inherit; }
 
 .foot { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 0.85rem; }
 
-.toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 140%); background: #fff7ec; color: #2b1300; font-weight: 800; padding: 10px 18px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); transition: transform 0.3s ease; z-index: 30; max-width: 90vw; text-align: center; }
-.toast.show { transform: translate(-50%, 0); }
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 140%); visibility: hidden; background: #fff7ec; color: #2b1300; font-weight: 800; padding: 10px 18px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); transition: transform 0.3s ease; z-index: 30; max-width: 90vw; text-align: center; }
+.toast.show { transform: translate(-50%, 0); visibility: visible; }
 
 .leaves { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
 .leaves span { position: absolute; top: -40px; font-size: 22px; opacity: 0.55; animation: fall linear infinite; }
@@ -128,6 +132,7 @@ button, input, select { font: inherit; color: inherit; }
 @keyframes buzz { from { transform: translate(0, 0); } to { transform: translate(4px, -3px); } }
 @keyframes rise { 0%, 100% { opacity: 0.2; transform: translateY(4px); } 50% { opacity: 0.8; transform: translateY(-2px); } }
 @keyframes pop { from { opacity: 0; transform: translateX(-50%) scale(0.9); } to { opacity: 1; transform: translateX(-50%) scale(1); } }
+@keyframes pop-edge { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: none; } }
 @keyframes sprout { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 640px) {

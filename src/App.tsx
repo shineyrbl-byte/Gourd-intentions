@@ -343,7 +343,7 @@ function FloatingGhost({
   const line = roast(task, spice, n);
   const lane = [12, 62, 34, 80, 22, 50][index % 6];
   return (
-    <div className={`ghost float-${index % 3}`} style={{ left: `${lane}%`, top: `${8 + (index % 3) * 9}%` }}>
+    <div className={`ghost float-${index % 3} ${lane < 30 ? "edge-left" : lane > 70 ? "edge-right" : ""}`} style={{ left: `${lane}%`, top: `${14 + (index % 3) * 22}px` }}>
       {(open || peek) && (
         <div className="bubble" role={open ? "dialog" : undefined} aria-label={open ? `Ghost of ${task.text}` : undefined}>
           <p className="bubble-title">Ghost of "{task.text}"</p>
