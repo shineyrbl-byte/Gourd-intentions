@@ -4,6 +4,8 @@
 
 **▶ Try it: https://gourd-intentions.vercel.app**
 
+**🎬 Demo video: https://youtu.be/d67jxZZcfP8**
+
 Everyone has good intentions. Gourd Intentions makes procrastination visible, and a little bit spooky.
 
 ## How it works
