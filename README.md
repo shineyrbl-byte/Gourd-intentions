@@ -2,6 +2,8 @@
 
 **The to-do list where your ignored tasks rot… and come back to haunt you.**
 
+**▶ Try it: https://gourd-intentions.vercel.app**
+
 Everyone has good intentions. Gourd Intentions makes procrastination visible, and a little bit spooky.
 
 ## How it works
